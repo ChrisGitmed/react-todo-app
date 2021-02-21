@@ -4,6 +4,7 @@ body {
 
 h1 {
   font-size: 1.4rem;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 nav {
@@ -21,6 +22,7 @@ nav {
 
 .page-container {
   padding: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .input-box {
@@ -28,6 +30,7 @@ nav {
   text-align: center;
   margin-bottom: 1rem;
   border: 1px solid #333;
+  color: #333;
 }
 
 .input-box > input,
@@ -35,10 +38,12 @@ nav {
   font-size: 1.4rem;
   border: none;
   padding: 0.25rem;
+  color: #333;
 }
 
 .input-box > input {
   width: inherit;
+  font-family: 'Roboto', sans-serif;
 }
 
 .input-box > button {
