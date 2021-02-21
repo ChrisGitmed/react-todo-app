@@ -40,6 +40,8 @@ nav {
 
 .input-box > button {
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .todo-list-container {
