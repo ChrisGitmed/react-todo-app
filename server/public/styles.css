@@ -18,3 +18,27 @@ nav {
   margin: auto;
   height: 100vh;
 }
+
+.input-box {
+  justify-content: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.input-box > input,
+.input-box > button {
+  font-size: 1.5rem;
+}
+
+.input-box > input {
+  width: 70%;
+}
+
+.input-box > button {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
