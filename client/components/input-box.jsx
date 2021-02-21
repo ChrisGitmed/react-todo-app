@@ -25,7 +25,7 @@ export default function InputBox() {
 
   return (
     <form className="row input-box" onSubmit={handleSubmit}>
-      <input type="text" name="task" placeholder="Enter a task:" value={task} onChange={handleChange}/>
+      <input required type="text" name="task" placeholder="Enter a task" value={task} onChange={handleChange}/>
       <button><span className="lnr lnr-plus-circle"></span></button>
     </form>
   );
