@@ -1,6 +1,7 @@
 require('dotenv/config');
 const express = require('express');
 const pg = require('pg');
+const errorMiddleware = require('./error-middleware');
 
 const app = express();
 const db = new pg.Pool({
@@ -19,6 +20,8 @@ app.get('/api/todos', (req, res, next) => {
     .then(result => res.status(200).json(result.rows))
     .catch(err => next(err));
 });
+
+app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
