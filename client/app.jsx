@@ -4,7 +4,7 @@ import Home from './pages/home';
 
 export default function App() {
   return (
-    <div className="page-container">
+    <div className="app-container">
       <Navbar />
       <Home />
     </div>
