@@ -1,6 +1,7 @@
 require('dotenv/config');
 const express = require('express');
 const pg = require('pg');
+const ClientError = require('./client-error');
 const errorMiddleware = require('./error-middleware');
 
 const app = express();
@@ -26,6 +27,9 @@ app.get('/api/todos', (req, res, next) => {
 
 app.post('/api/todos', (req, res, next) => {
   const { task } = req.body;
+  if (!task) {
+    throw new ClientError(400, 'Task is required');
+  }
   const sql = `
     insert into todos (task)
          values ($1)
