@@ -1,7 +1,12 @@
 import React from 'react';
+import Navbar from './components/navbar';
+import Home from './pages/home';
 
 export default function App() {
   return (
-    <h1>Hello World!</h1>
+    <div className="app-container">
+      <Navbar />
+      <Home />
+    </div>
   );
 }

@@ -9,5 +9,5 @@ create schema "public";
 create table "todos" (
   "todoId" serial not null,
   "task" text not null,
-  "isCompleted" bool
+  "isCompleted" bool default false
 )
