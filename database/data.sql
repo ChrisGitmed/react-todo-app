@@ -1,2 +1,2 @@
-insert into "todos" (task, "isCompleted")
-     values ('Test this database', false)
+insert into "todos" (task)
+     values ('Test this database')
