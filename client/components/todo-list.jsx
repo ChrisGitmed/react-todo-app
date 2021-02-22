@@ -23,10 +23,8 @@ export default function TodoList() {
   });
 
   return (
-    <div className="todo-list-container">
-      <ul className="todo-list">
-        {listItems}
-      </ul>
-    </div>
+    <ul className="todo-list-container">
+      {listItems}
+    </ul>
   );
 }
