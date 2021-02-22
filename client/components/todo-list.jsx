@@ -8,15 +8,18 @@ export default function TodoList() {
       .then(result => {
         setTodoList(result);
       });
-  });
+  }, []);
 
   const listItems = todoList.map(todo => {
     const { isCompleted, task, todoId } = todo;
     return (
       <li key={todoId}>
-        <div>
+        <div className="row align-center justify-between">
           <p>{task}</p>
-          <span>{isCompleted}</span>
+          <span className={isCompleted
+            ? 'lnr lnr-checkmark-circle'
+            : ''}>
+          </span>
         </div>
       </li>
     );
