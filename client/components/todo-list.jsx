@@ -33,7 +33,7 @@ export default function TodoList() {
       <li key={todoId} onClick={ () => handleClick(todoId, isCompleted)}>
         <div className="row align-center justify-between">
           <p>{task}</p>
-          <span className={isCompleted
+          <span style={{ color: 'green' }} className={isCompleted
             ? 'lnr lnr-checkmark-circle'
             : ''}>
           </span>
