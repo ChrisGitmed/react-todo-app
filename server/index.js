@@ -19,6 +19,7 @@ app.get('/api/todos', (req, res, next) => {
   const sql = `
     select *
       from todos
+  order by "todoId"
   `;
   db.query(sql)
     .then(result => res.status(200).json(result.rows))
