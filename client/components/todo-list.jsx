@@ -19,9 +19,8 @@ export default function TodoList() {
       body: JSON.stringify({ isCompleted: !isCompleted })
     };
     fetch('/api/todos/' + todoId, req)
-      .then(res => res.json())
-      .then(result => {
-        setToggle(!toggle);
+      .then(res => {
+        if (res.status === 200) setToggle(!toggle);
       })
       .catch(err => {
         if (err) throw err;
