@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 export default function TodoList() {
   const [todoList, setTodoList] = useState([]);
+  const [toggle, setToggle] = useState(false);
+
   useEffect(() => {
     fetch('/api/todos')
       .then(res => res.json())
       .then(result => {
         setTodoList(result);
       });
-  }, []);
+  }, [toggle]);
 
   function handleClick(todoId, isCompleted) {
     const req = {
@@ -19,7 +21,7 @@ export default function TodoList() {
     fetch('/api/todos/' + todoId, req)
       .then(res => res.json())
       .then(result => {
-        // render the capsule list again (useEffect)
+        setToggle(!toggle);
       })
       .catch(err => {
         if (err) throw err;
