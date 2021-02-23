@@ -19,6 +19,7 @@ app.get('/api/todos', (req, res, next) => {
   const sql = `
     select *
       from todos
+  order by "todoId"
   `;
   db.query(sql)
     .then(result => res.status(200).json(result.rows))
@@ -38,6 +39,28 @@ app.post('/api/todos', (req, res, next) => {
   const params = [task];
   db.query(sql, params)
     .then(result => res.status(201).json(result.rows[0]))
+    .catch(err => next(err));
+});
+
+app.put('/api/todos/:id', (req, res, next) => {
+  const todoId = req.params.id;
+  const { isCompleted } = req.body;
+  if (todoId < 1) {
+    throw new ClientError(400, 'id is required');
+  } else if (isCompleted === undefined) {
+    throw new ClientError(400, 'isCompleted is a required field');
+  }
+  const sql = `
+    update todos
+       set "isCompleted" = $1
+     where "todoId" = $2
+ returning *
+  `;
+  const params = [isCompleted, todoId];
+  db.query(sql, params)
+    .then(result => {
+      res.status(200).json(result.rows);
+    })
     .catch(err => next(err));
 });
 
