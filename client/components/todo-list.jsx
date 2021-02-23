@@ -10,10 +10,25 @@ export default function TodoList() {
       });
   }, []);
 
+  function handleClick(todoId, isCompleted) {
+    const req = {
+      method: 'put',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ isCompleted: !isCompleted })
+    };
+    fetch('/api/todos/' + todoId, req)
+      .then(res => res.json())
+      .then(result => {
+        // render the capsule list again (useEffect)
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
+  }
   const listItems = todoList.map(todo => {
     const { isCompleted, task, todoId } = todo;
     return (
-      <li key={todoId}>
+      <li key={todoId} onClick={ () => handleClick(todoId, isCompleted)}>
         <div className="row align-center justify-between">
           <p>{task}</p>
           <span className={isCompleted
